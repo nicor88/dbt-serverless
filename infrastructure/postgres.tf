@@ -1,74 +1,55 @@
-resource "random_string" "master_postgres_password" {
+resource "random_string" "postgres_cluster_master_password" {
   length = 32
   upper = true
   number = true
   special = false
 }
 
-resource "aws_security_group" "postgres_public" {
-  name = "${var.project}-postgres-public-sg"
-  description = "Allow all inbound for Postgres"
-  vpc_id = "${aws_vpc.vpc.id}"
-
-  ingress {
-    from_port   = 5432
-    to_port     = 5432
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0", "${var.vpc_cidr_block}" ]
-  }
-
-  egress {
-    from_port       = 0
-    to_port         = 0
-    protocol        = "-1"
-    cidr_blocks     = ["0.0.0.0/0"]
-  }
-
-  tags = {
-    Name = "${var.project}-postgres-public-sg"
-  }
-}
-
-resource "aws_db_subnet_group" "subnet_group" {
-  name        = "${var.project}"
-  description = "Subnet grup for ${var.project} "
+resource "aws_db_subnet_group" "postgres_cluster" {
+  name        = "postgres-cluster"
+  description = "Subnet group for Aurora Postgres cluster"
   subnet_ids  = ["${aws_subnet.public.*.id}"]
 
   tags {
-    Name        = "${var.project}-subnet-group"
+    Name        = "postgres-cluster-subnet-group"
   }
 }
 
-
-resource "aws_rds_cluster_parameter_group" "cluster_parameter_group" {
-  name   = "${var.project}-pg"
+resource "aws_rds_cluster_parameter_group" "postgres_cluster" {
+  name   = "postgres-serverless-pg"
   family = "aurora-postgresql10"
-  description = "Aurora Postgres parameter group"
+  description = "Aurora Postgres Cluster parameter group"
 }
 
-resource "aws_rds_cluster" "postgres" {
-
-  cluster_identifier      = "${var.project}"
+resource "aws_rds_cluster" "postgres_cluster" {
+  cluster_identifier      = "dbt-postgres-cluster"
   engine                  = "aurora-postgresql"
   engine_version          = "10.7"
   availability_zones      = "${var.availability_zones}"
-  db_subnet_group_name    = "${aws_db_subnet_group.subnet_group.name}"
-  db_cluster_parameter_group_name = "${aws_rds_cluster_parameter_group.cluster_parameter_group.name}"
+  db_subnet_group_name    = "${aws_db_subnet_group.postgres_cluster.name}"
+  db_cluster_parameter_group_name = "${aws_rds_cluster_parameter_group.postgres_cluster.name}"
   vpc_security_group_ids  = ["${aws_security_group.postgres_public.id}"]
   database_name           = "dbt"
   master_username         = "root"
-  master_password         = "${random_string.master_postgres_password.result}"
+  master_password         = "${random_string.postgres_cluster_master_password.result}"
   backup_retention_period = 7
   preferred_backup_window = "04:00-05:00"
-  engine_mode             = "serverless"
+
   skip_final_snapshot     = true
   apply_immediately       = true
 
-  scaling_configuration {
-    auto_pause               = true
-    max_capacity             = 64
-    min_capacity             = 2
-    seconds_until_auto_pause = 300
-    timeout_action           = "ForceApplyCapacityChange"
+
+  tags = {
+    Name = "dbt-postgres-cluster"
   }
+}
+
+resource "aws_rds_cluster_instance" "postgres_cluster_instance" {
+  count                   = 1
+  identifier              = "dbt-postgres-cluster-instance-${count.index}"
+  cluster_identifier      = "${aws_rds_cluster.postgres_cluster.id}"
+  instance_class          = "db.t3.medium" # note that is the only instance available from t3 generation
+  publicly_accessible     = true
+  engine                  = "aurora-postgresql"
+  engine_version          = "10.7"
 }

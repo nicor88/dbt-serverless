@@ -60,3 +60,27 @@ resource "aws_route_table_association" "public" {
   subnet_id      = "${element(aws_subnet.public.*.id, count.index)}"
   route_table_id = "${aws_route_table.public_route_table.id}"
 }
+
+resource "aws_security_group" "postgres_public" {
+  name = "${var.project}-postgres-public-sg"
+  description = "Allow all inbound for Postgres"
+  vpc_id = "${aws_vpc.vpc.id}"
+
+  ingress {
+    from_port   = 5432
+    to_port     = 5432
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  egress {
+    from_port       = 0
+    to_port         = 0
+    protocol        = "-1"
+    cidr_blocks     = ["0.0.0.0/0"]
+  }
+
+  tags = {
+    Name = "${var.project}-postgres-public-sg"
+  }
+}
