@@ -1,3 +1,6 @@
+
+IMAGE-NAME="dbt-serverless"
+
 infra-get:
 	cd infrastructure && terraform get;
 
@@ -12,3 +15,6 @@ infra-apply: infra-plan
 
 infra-destroy:
 	cd infrastructure && terraform destroy;
+
+docker-build:
+	docker build --rm -t $IMAGE_NAME:latest .
