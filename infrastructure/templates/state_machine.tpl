@@ -44,7 +44,7 @@
       ],
       "End": true
     },
-    "FailState": {
+    "FailureExample": {
       "Type": "Fail"
     }
   }
