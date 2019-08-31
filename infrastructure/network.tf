@@ -85,7 +85,7 @@ resource "aws_security_group" "postgres_public" {
   }
 }
 
-resource "aws_security_group" "ecs_task" {
+resource "aws_security_group" "dbt_security_group" {
     name = "${var.project}-ecs-task-sg"
     description = "Security group for ECS tasks"
     vpc_id = "${aws_vpc.vpc.id}"

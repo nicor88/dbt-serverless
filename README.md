@@ -5,3 +5,17 @@ Run dbt serverless in the Cloud (AWS)
 * aws credentials configured in `~/.aws/credentials`
 * terraform
     * MacOs
+
+
+## AWS Step Function
+
+### Input example
+
+<pre>
+{
+  "commands": [
+    "dbt",
+    "run"
+  ]
+}
+</pre>

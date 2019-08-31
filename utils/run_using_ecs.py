@@ -1,5 +1,3 @@
-import uuid
-
 import boto3
 
 ecs = boto3.client('ecs')
@@ -8,7 +6,7 @@ ecs = boto3.client('ecs')
 def run_dbt(command, subnets=None, security_groups=None ):
     ecs_command = command.split(' ')
     ecs_subnets = subnets or ['subnet-02b703119b15085ed']
-    ecs_security_groups = security_groups or ['sg-0bb3d067d0b7a1b9a']
+    ecs_security_groups = security_groups or ['sg-0fd82d6e889d1a56d']
     network_config = {
         'awsvpcConfiguration': {
             'subnets': ecs_subnets,
@@ -26,7 +24,7 @@ def run_dbt(command, subnets=None, security_groups=None ):
             },
         ]
     }
-    execution_id = f'{uuid.uuid4()}'
+    execution_id = 'python_local'
 
     response = ecs.run_task(cluster='dbt-serverless',
                             taskDefinition='dbt-serverless-task',
@@ -34,6 +32,8 @@ def run_dbt(command, subnets=None, security_groups=None ):
                             startedBy=execution_id,
                             networkConfiguration=network_config,
                             overrides=overrides)
+    print(f'Task execution {execution_id}')
+    print(response)
     return response, execution_id
 
 
