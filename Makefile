@@ -1,4 +1,3 @@
-
 IMAGE-NAME="dbt-serverless"
 
 infra-get:
@@ -18,3 +17,9 @@ infra-destroy:
 
 docker-build:
 	docker build --rm -t $IMAGE_NAME:latest .
+
+run-dbt-example-docker:
+	bash utils/run_container_locally.sh example
+
+push-to-ecr:
+	bash utils/push_to_ecr.sh

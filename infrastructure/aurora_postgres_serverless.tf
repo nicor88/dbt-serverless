@@ -37,6 +37,7 @@ resource "aws_rds_cluster" "postgres_severless" {
   engine_mode             = "serverless"
   skip_final_snapshot     = true
   apply_immediately       = true
+  port                    =  "${var.db_port}"
 
   scaling_configuration {
     auto_pause               = true

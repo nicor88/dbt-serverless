@@ -20,10 +20,18 @@ variable "public_subnets" {
   default = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
 }
 
+variable "db_port" {
+  default = "5432"
+}
+
 variable "master_username" {
   default = "root"
 }
 
 variable "database_name" {
   default = "dbt"
+}
+
+variable "dbt_default_schema" {
+  default = "dwh"
 }

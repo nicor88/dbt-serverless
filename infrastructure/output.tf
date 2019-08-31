@@ -3,11 +3,15 @@ output "postgres_serverless_master_password" {
   value = "${random_string.postgres_severless_master_password.result}"
 }
 
+output "postgres_serverless_port" {
+  value = "${aws_rds_cluster.postgres_severless.port}"
+}
+
 output "postgres_serverless_master_user" {
   value = "${aws_rds_cluster.postgres_severless.master_username}"
 }
 
-output "ppostgres_serverless_endpoint" {
+output "postgres_serverless_endpoint" {
   value = "${aws_rds_cluster.postgres_severless.endpoint}"
 }
 

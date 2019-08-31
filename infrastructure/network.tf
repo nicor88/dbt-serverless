@@ -84,3 +84,20 @@ resource "aws_security_group" "postgres_public" {
     Name = "${var.project}-postgres-public-sg"
   }
 }
+
+resource "aws_security_group" "ecs_task" {
+    name = "${var.project}-ecs-task-sg"
+    description = "Security group for ECS tasks"
+    vpc_id = "${aws_vpc.vpc.id}"
+
+    egress {
+        from_port       = 0
+        to_port         = 0
+        protocol        = "-1"
+        cidr_blocks     = ["0.0.0.0/0"]
+    }
+
+    tags = {
+        Name = "${var.project}-ecs-task-sg"
+    }
+}
