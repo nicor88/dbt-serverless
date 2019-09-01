@@ -5,7 +5,7 @@ import boto3
 
 sm = boto3.client('stepfunctions')
 
-sm_arn = 'arn:aws:states:eu-west-1:191605532619:stateMachine:dbt-serverless-sm'
+sm_arn = 'arn:aws:states:eu-west-1:191605532619:stateMachine:dbt-serverless-with-deps'
 
 dbt_command_1 = 'dbt run --models example'
 dbt_command_2 = 'dbt run --models just_another_example'
