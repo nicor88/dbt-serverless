@@ -17,7 +17,6 @@ jobs:
             . venv/bin/activate
             pip install -r requirements.txt
       - aws-ecr/build-and-push-image:
-          account-url: ${AWS_ECR_ACCOUNT_URL}
           region: ${AWS_DEFAULT_REGION}
           repo: dbt-serverless
           tag: ${CIRCLE_SHA1}
