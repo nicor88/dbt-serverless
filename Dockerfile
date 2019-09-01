@@ -10,7 +10,6 @@ COPY config/profiles.dist.yml /root/.dbt/profiles.yml
 WORKDIR /dbt
 
 COPY dbt_project.yml /dbt/dbt_project.yml
-COPY analysis /dbt/analysis
 COPY macros /dbt/macros
 COPY models /dbt/models
 COPY tests /dbt/tests

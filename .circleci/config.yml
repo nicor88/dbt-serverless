@@ -20,6 +20,9 @@ jobs:
             pip install -r requirements.txt
       - aws-ecr/build-and-push-image:
           repo: dbt-serverless
+          tag: latest
+      - aws-ecr/build-and-push-image:
+          repo: dbt-serverless
           tag: ${CIRCLE_SHA1}
 
 
