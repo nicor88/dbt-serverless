@@ -10,9 +10,9 @@ COPY config/profiles.dist.yml /root/.dbt/profiles.yml
 WORKDIR /dbt
 
 COPY dbt_project.yml /dbt/dbt_project.yml
-COPY macros /dbt/macros
+# COPY macros /dbt/macros
 COPY models /dbt/models
-COPY tests /dbt/tests
+# COPY tests /dbt/tests
 
 # install dbt deps
 RUN dbt deps
