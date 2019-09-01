@@ -62,8 +62,8 @@ resource "aws_iam_role_policy_attachment" "attach_policy_step_function_role" {
   policy_arn = "${aws_iam_policy.step_function_policy.arn}"
 }
 
-data "template_file" "state_machine" {
-  template = "${file("templates/state_machine.tpl")}"
+data "template_file" "state_machine_with_deps" {
+  template = "${file("templates/state_machine_with_deps.tpl")}"
   vars {
     ecs_cluster = "${aws_ecs_cluster.ecs_cluster.arn}"
     ecs_task_name = "${var.project}-task"
@@ -71,15 +71,37 @@ data "template_file" "state_machine" {
     subnet_2 = "${aws_subnet.public.1.id}"
     subnet_3 = "${aws_subnet.public.2.id}"
     security_group_1 = "${aws_security_group.dbt_security_group.id}"
-    retry_seconds = 15
+    retry_seconds = 5
     retry_backoff = 1.5
     retry_attempts = 3
   }
 }
 
-resource "aws_sfn_state_machine" "sfn_state_machine" {
-  name     = "${var.project}-sm"
+resource "aws_sfn_state_machine" "sfn_state_machine_with_deps" {
+  name     = "${var.project}-with-deps"
   role_arn = "${aws_iam_role.step_function_role.arn}"
 
-  definition = "${data.template_file.state_machine.rendered}"
+  definition = "${data.template_file.state_machine_with_deps.rendered}"
+}
+
+data "template_file" "state_machine_with_no_deps" {
+  template = "${file("templates/state_machine_with_no_deps.tpl")}"
+  vars {
+    ecs_cluster = "${aws_ecs_cluster.ecs_cluster.arn}"
+    ecs_task_name = "${var.project}-task"
+    subnet_1 = "${aws_subnet.public.0.id}"
+    subnet_2 = "${aws_subnet.public.1.id}"
+    subnet_3 = "${aws_subnet.public.2.id}"
+    security_group_1 = "${aws_security_group.dbt_security_group.id}"
+    retry_seconds = 5
+    retry_backoff = 1.5
+    retry_attempts = 3
+  }
+}
+
+resource "aws_sfn_state_machine" "sfn_state_machine_with_no_deps" {
+  name     = "${var.project}-with-no-deps"
+  role_arn = "${aws_iam_role.step_function_role.arn}"
+
+  definition = "${data.template_file.state_machine_with_no_deps.rendered}"
 }

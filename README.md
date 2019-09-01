@@ -13,9 +13,19 @@ Run dbt serverless in the Cloud (AWS)
 
 <pre>
 {
-  "commands": [
+  "commands1": [
     "dbt",
-    "run"
+    "run",
+    "--models"
+    "example"
+  ],
+  {
+  "commands2": [
+    "dbt",
+    "run",
+  	"--models"
+    "just_another_example"
   ]
+}
 }
 </pre>

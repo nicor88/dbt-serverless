@@ -1,7 +1,7 @@
 {
-  "StartAt": "first_task",
+  "StartAt": "dbt_run",
   "States": {
-    "first_task": {
+    "dbt_run": {
       "Type": "Task",
       "Resource": "arn:aws:states:::ecs:runTask.sync",
       "Parameters": {
@@ -24,27 +24,30 @@
           ]
         }
       },
-      "Catch": [
-        {
-          "ErrorEquals": [
-            "States.ALL"
-          ],
-          "Next": "FailureExample"
-        }
-      ],
       "Retry": [
         {
-          "ErrorEquals": [
-            "States.ALL"
-          ],
+          "ErrorEquals": ["States.ALL"],
           "IntervalSeconds": ${retry_seconds},
           "BackoffRate": ${retry_backoff},
           "MaxAttempts": ${retry_attempts}
         }
       ],
-      "End": true
+      "Catch": [
+        {
+          "ErrorEquals": ["States.ALL"],
+          "Next": "FailureNotifier",
+          "ResultPath": null
+        }
+      ],
+      "End": true,
+      "ResultPath": "$.dbt_run"
     },
-    "FailureExample": {
+    "FailureNotifier": {
+      "Type": "Pass",
+      "Next": "Failure",
+      "ResultPath": "$.notifier"
+    },
+    "Failure": {
       "Type": "Fail"
     }
   }
