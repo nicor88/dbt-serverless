@@ -4,7 +4,10 @@ infrastructure/terraform.tfstate
 infrastructure/terraform.tfstate.backup
 infrastructure/.terraform.tfstate.lock.info
 
-#dbt
+# dbt
 target/
 dbt_modules/
 logs/
+
+# artifacts
+*.zip

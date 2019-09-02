@@ -24,3 +24,6 @@ run-dbt-example-docker:
 
 push-to-ecr:
 	bash utils/push_to_ecr.sh ${AWS_ACCOUNT_ID}
+
+upload-lambda-python-3.7-postgres:
+	cd utils/lambda_layer_python_3.7 && bash upload_layer.sh postgres
