@@ -89,10 +89,10 @@ resource "aws_lb_listener" "postgres_severless" {
 
 resource "aws_lb_target_group_attachment" "postgres_serverles_ip_1" {
   target_group_arn = "${aws_lb_target_group.postgres_severless_target_group.arn}"
-  target_id        = "10.0.2.95"
+  target_id        = "${var.autora_postgres_serverless_private_ip_1}"
 }
 
 resource "aws_lb_target_group_attachment" "postgres_serverles_ip_2" {
   target_group_arn = "${aws_lb_target_group.postgres_severless_target_group.arn}"
-  target_id        = "10.0.1.232"
+  target_id        = "${var.autora_postgres_serverless_private_ip_2}"
 }

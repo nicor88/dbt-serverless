@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+AWS_ACCOUNT_ID=$1
+
 IMAGE_NAME="dbt-serverless"
 COMMIT_HASH=$(hexdump -n 16 -v -e '/1 "%02X"' -e '/16 "\n"' /dev/urandom)
 

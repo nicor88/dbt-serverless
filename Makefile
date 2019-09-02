@@ -1,4 +1,5 @@
 IMAGE-NAME="dbt-serverless"
+AWS_ACCOUNT_ID=
 
 infra-get:
 	cd infrastructure && terraform get;
@@ -22,4 +23,4 @@ run-dbt-example-docker:
 	bash utils/run_container_locally.sh example
 
 push-to-ecr:
-	bash utils/push_to_ecr.sh
+	bash utils/push_to_ecr.sh ${AWS_ACCOUNT_ID}

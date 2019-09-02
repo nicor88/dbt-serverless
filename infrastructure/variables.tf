@@ -35,3 +35,11 @@ variable "database_name" {
 variable "dbt_default_schema" {
   default = "dwh"
 }
+
+variable "autora_postgres_serverless_private_ip_1" {
+  default = "10.0.2.95"
+}
+
+variable "autora_postgres_serverless_private_ip_2" {
+  default = "10.0.1.232"
+}
