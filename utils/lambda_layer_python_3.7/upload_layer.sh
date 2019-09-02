@@ -14,3 +14,5 @@ zip -r ${ZIP_ARTIFACT} .
 
 echo "Loading layer to AWS..."
 aws lambda publish-layer-version --layer-name ${LAYER_NAME} --zip-file fileb://${ZIP_ARTIFACT} --compatible-runtimes python3.7
+
+rm -rf ${LAYER_BUILD_DIR}
