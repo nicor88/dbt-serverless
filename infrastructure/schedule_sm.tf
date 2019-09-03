@@ -51,7 +51,7 @@ DOC
 resource "aws_cloudwatch_event_rule" "state_machine_trigger" {
   name = "${var.project}-state-machine-schedule"
   schedule_expression = "cron(0 * * * ? *)" # "rate(60 minutes)"
-  is_enabled = true
+  is_enabled = false
 }
 
 resource "aws_cloudwatch_event_target" "state_machine_target" {
