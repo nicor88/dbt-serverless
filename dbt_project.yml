@@ -1,4 +1,4 @@
-name: 'my_package'
+name: 'example_dbt'
 version: '1.0'
 
 profile: 'example'
@@ -15,7 +15,21 @@ clean-targets:         # directories to be removed by `dbt clean`
     - "dbt_modules"
 
 models:
-  my_package:
+  example_dbt:
       # Applies to all files under models/example/
       example:
           materialized: view
+
+seeds:
+  example_dbt:
+    enabled: true
+    schema: raw
+    country:
+      # Override column types
+      column_types:
+        country_code: varchar(2)
+        country_name: varchar(50)
+        google_criteria_id: integer
+        currency_code: varchar(3)
+        currency_name: varchar(50)
+        is_gdpr_country: boolean

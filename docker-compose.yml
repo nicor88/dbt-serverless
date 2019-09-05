@@ -1,0 +1,12 @@
+version: '3'
+services:
+  postgres:
+    image: postgres:10.7
+    environment:
+      - POSTGRES_USER=dbt
+      - POSTGRES_PASSWORD=dbt
+      - POSTGRES_DB=dbt
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432

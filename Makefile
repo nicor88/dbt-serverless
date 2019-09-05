@@ -1,6 +1,9 @@
 IMAGE-NAME="dbt-serverless"
 AWS_ACCOUNT_ID=
 
+install:
+	pip install -r requirements.txt
+
 infra-get:
 	cd infrastructure && terraform get;
 
@@ -27,3 +30,9 @@ push-to-ecr:
 
 upload-lambda-python-3.7-postgres:
 	cd utils/lambda_layer_python_3.7 && bash upload_layer.sh postgres
+
+postgres-up: postgres-down
+	docker-compose up -d
+
+postgres-down:
+	docker-compose down

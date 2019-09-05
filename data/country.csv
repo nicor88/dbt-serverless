@@ -1,0 +1,257 @@
+code,name,google_criteria_id,currency_code,currency_name,is_gdpr_country
+AF,Afghanistan,2004,AFN,Afghani,FALSE
+AL,Albania,2008,ALL,Lek,FALSE
+DZ,Algeria,2012,DZD,Algerian Dinar,FALSE
+AS,American Samoa,2016,EUR,Euros,FALSE
+AD,Andorra,2020,EUR,Euros,FALSE
+AO,Angola,2024,AOA,Angolan kwanza,FALSE
+AI,Anguilla,2660,XCD,East Caribbean Dollar,FALSE
+AQ,Antarctica,2010,AQD,Antarctican dollar,FALSE
+AG,Antigua and Barbuda,2028,XCD,East Caribbean Dollar,FALSE
+AR,Argentina,2032,ARS,Peso,FALSE
+AM,Armenia,2051,AMD,Dram,FALSE
+AN,Netherlands Antilles,,ANG,Netherlands Antilles Guilder,FALSE
+AW,Aruba,2533,ANG,Netherlands Antilles Guilder,FALSE
+AU,Australia,2036,AUD,Australian Dollars,FALSE
+AT,Austria,2040,EUR,Euros,TRUE
+AZ,Azerbaijan,2031,AZN,Manat,FALSE
+BH,Bahrain,2048,BHD,Bahraini Dinar,FALSE
+BD,Bangladesh,2050,BDT,Taka,FALSE
+BB,Barbados,2052,BBD,Barbadian Dollar,FALSE
+BY,Belarus,2112,BYR,Belarus Ruble,FALSE
+BE,Belgium,2056,EUR,Euros,TRUE
+BZ,Belize,2084,BZD,Belizean Dollar,FALSE
+BJ,Benin,2204,XOF,CFA Franc BCEAO,FALSE
+BM,Bermuda,2060,BMD,Bermudian Dollar,FALSE
+BT,Bhutan,2064,INR,Indian Rupee,FALSE
+BO,Bolivia,2068,BOB,Boliviano,FALSE
+BA,Bosnia and Herzegovina,2070,BAM,Bosnia and Herzegovina convertible mark,FALSE
+BW,Botswana,2072,BWP,Pula,FALSE
+BV,Bouvet Island,2074,NOK,Norwegian Krone,FALSE
+BR,Brazil,2076,BRL,Brazil,FALSE
+IO,British Indian Ocean Territory,2086,USD,USD,FALSE
+VG,British Virgin Islands,2092,USD,USD,FALSE
+BN,Brunei,2096,BND,Bruneian Dollar,FALSE
+BG,Bulgaria,2100,BGN,Lev,TRUE
+BF,Burkina Faso,2854,XOF,CFA Franc BCEAO,FALSE
+BI,Burundi,2108,BIF,Burundi Franc,FALSE
+KH,Cambodia,2116,KHR,Riel,FALSE
+CM,Cameroon,2120,XAF,CFA Franc BEAC,FALSE
+CA,Canada,2124,CAD,Canadian Dollar,FALSE
+CV,Cape Verde,2132,CVE,Escudo,FALSE
+KY,Cayman Islands,2136,KYD,Caymanian Dollar,FALSE
+CF,Central African Republic,2140,XAF,CFA Franc BEAC,FALSE
+TD,Chad,2148,XAF,CFA Franc BEAC,FALSE
+CL,Chile,2152,CLP,Chilean Peso,FALSE
+CN,China,2156,CNY,Yuan Renminbi,FALSE
+CX,Christmas Island,2162,AUD,Australian Dollars,FALSE
+CC,Cocos (Keeling) Islands,2166,AUD,Australian Dollars,FALSE
+CO,Colombia,2170,COP,Peso,FALSE
+KM,Comoros,2174,KMF,Comoran Franc,FALSE
+CK,Cook Islands,2184,NZD,New Zealand Dollars,FALSE
+CR,Costa Rica,2188,CRC,Costa Rican Colon,FALSE
+CI,Cote d'Ivoire,2384,XOF,CFA Franc BCEAO,FALSE
+HR,Croatia,2191,HRK,Croatian Dinar,TRUE
+CU,Cuba,,CUP,Cuban Peso,FALSE
+CW,Curacao,,ANG,Netherlands Antilles Guilder,FALSE
+CY,Cyprus,2196,EUR,Euros,TRUE
+CZ,Czech Republic,2203,CZK,Koruna,TRUE
+CD,Democratic Republic of the Congo,2180,CDF,Congolese Frank,FALSE
+DK,Denmark,2208,DKK,Danish Krone,TRUE
+DJ,Djibouti,2262,DJF,Djiboutian Franc,FALSE
+DM,Dominica,2212,XCD,East Caribbean Dollar,FALSE
+DO,Dominican Republic,2214,DOP,Dominican Peso,FALSE
+EC,Ecuador,2218,ECS,Sucre,FALSE
+EG,Egypt,2818,EGP,Egyptian Pound,FALSE
+SV,El Salvador,2222,SVC,Salvadoran Colon,FALSE
+GQ,Equatorial Guinea,2226,XAF,CFA Franc BEAC,FALSE
+ER,Eritrea,2232,ETB,Ethiopian Birr,FALSE
+EE,Estonia,2233,EUR,Euros,TRUE
+ET,Ethiopia,2231,ETB,Ethiopian Birr,FALSE
+FK,Falkland Islands (Islas Malvinas),2238,FKP,Falkland Pound,FALSE
+FO,Faroe Islands,2234,DKK,Danish Krone,FALSE
+FM,Federated States of Micronesia,2583,USD,USD,FALSE
+FJ,Fiji,2242,FJD,Fijian Dollar,FALSE
+FI,Finland,2246,EUR,Euros,TRUE
+FR,France,2250,EUR,Euros,TRUE
+GF,French Guiana,2254,EUR,Euros,FALSE
+PF,French Polynesia,2258,XPF,CFP Franc,FALSE
+TF,French Southern and Antarctic Lands,2260,EUR,Euros,FALSE
+GA,Gabon,2266,XAF,CFA Franc BEAC,FALSE
+GE,Georgia,2268,GEL,Lari,FALSE
+DE,Germany,2276,EUR,Euros,TRUE
+GH,Ghana,2288,GHS,Ghana cedi,FALSE
+GI,Gibraltar,2292,GIP,Gibraltar Pound,FALSE
+GR,Greece,2300,EUR,Euros,TRUE
+GL,Greenland,2304,DKK,Danish Krone,FALSE
+GD,Grenada,2308,XCD,East Caribbean Dollar,FALSE
+GP,Guadeloupe,2312,EUR,Euros,FALSE
+GU,Guam,2316,USD,USD,FALSE
+GT,Guatemala,2320,GTQ,Quetzal,FALSE
+GG,Guernsey,,GGP,Guernsey pound,FALSE
+GN,Guinea,2324,GNF,Guinean Franc,FALSE
+GW,Guinea-Bissau,2624,XOF,CFA Franc BCEAO,FALSE
+GY,Guyana,2328,GYD,Guyanaese Dollar,FALSE
+HT,Haiti,2332,HTG,Gourde,FALSE
+HM,Heard Island and McDonald Islands,2334,AUD,Australian Dollars,FALSE
+HN,Honduras,2340,HNL,Lempira,FALSE
+HK,Hong Kong,2344,HKD,HKD,FALSE
+HU,Hungary,2348,HUF,Forint,TRUE
+IS,Iceland,2352,ISK,Icelandic Krona,FALSE
+IN,India,2356,INR,Indian Rupee,FALSE
+ID,Indonesia,2360,IDR,Indonesian Rupiah,FALSE
+IR,Iran,,IRR,Iranian Rial,FALSE
+IQ,Iraq,2368,IQD,Iraqi Dinar,FALSE
+IE,Ireland,2372,EUR,Euros,TRUE
+IM,Isle of Man,,GBP,Manx pound,FALSE
+IL,Israel,2376,ILS,Shekel,FALSE
+IT,Italy,2380,EUR,Euros,TRUE
+JM,Jamaica,2388,JMD,Jamaican Dollar,FALSE
+JP,Japan,2392,JPY,Japanese Yen,FALSE
+JE,Jersey,,GBP,Sterling,FALSE
+JO,Jordan,2400,JOD,Jordanian Dinar,FALSE
+KZ,Kazakhstan,2398,KZT,Tenge,FALSE
+KE,Kenya,2404,KES,Kenyan Shilling,FALSE
+KI,Kiribati,2296,AUD,Australian Dollars,FALSE
+XK,Kosovo,2900,EUR,Euros,FALSE
+KW,Kuwait,2414,KWD,Kuwaiti Dinar,FALSE
+KG,Kyrgyzstan,2417,KGS,Som,FALSE
+LA,Laos,2418,LAK,Lao kip,FALSE
+LV,Latvia,2428,EUR,Euros,TRUE
+LB,Lebanon,2422,LBP,Lebanese Pound,FALSE
+LS,Lesotho,2426,LSL,Loti,FALSE
+LR,Liberia,2430,LRD,Liberian Dollar,FALSE
+LY,Libya,2434,LYD,Libyan Dinar,FALSE
+LI,Liechtenstein,2438,CHF,Swiss Franc,FALSE
+LT,Lithuania,2440,EUR,Euros,TRUE
+LU,Luxembourg,2442,EUR,Euros,TRUE
+MO,Macau,2446,MOP,Macanese pataca,FALSE
+MK,Macedonia (FYROM),2807,MKD,Denar,FALSE
+MG,Madagascar,2450,MGA,Malagasy Franc,FALSE
+MW,Malawi,2454,MWK,Malawian Kwacha,FALSE
+MY,Malaysia,2458,MYR,Ringgit,FALSE
+MV,Maldives,2462,MVR,Rufiyaa,FALSE
+ML,Mali,2466,XOF,CFA Franc BCEAO,FALSE
+MT,Malta,2470,EUR,Euros,TRUE
+MH,Marshall Islands,2584,USD,USD,FALSE
+MQ,Martinique,2474,EUR,Euros,FALSE
+MR,Mauritania,2478,MRO,Ouguiya,FALSE
+MU,Mauritius,2480,MUR,Mauritian Rupee,FALSE
+YT,Mayotte,2175,EUR,Euros,FALSE
+MX,Mexico,2484,MXN,Peso,FALSE
+MD,Moldova,2498,MDL,Leu,FALSE
+MC,Monaco,2492,EUR,Euros,FALSE
+MN,Mongolia,2496,MNT,Tugrik,FALSE
+ME,Montenegro,2499,EUR,Euro,FALSE
+MS,Montserrat,2500,XCD,East Caribbean Dollar,FALSE
+MA,Morocco,2504,MAD,Dirham,FALSE
+MZ,Mozambique,2508,MZN,Metical,FALSE
+MM,Myanmar (Burma),2104,MMK,Kyat,FALSE
+NA,Namibia,2516,NAD,Dollar,FALSE
+NR,Nauru,2520,AUD,Australian Dollars,FALSE
+NP,Nepal,2524,NPR,Nepalese Rupee,FALSE
+NL,Netherlands,2528,EUR,Euros,TRUE
+BQ,Netherlands Antilles,2530,ANG,Netherlands Antilles Guilder,FALSE
+NC,New Caledonia,2540,XPF,CFP Franc,FALSE
+NZ,New Zealand,2554,NZD,New Zealand Dollars,FALSE
+NI,Nicaragua,2558,NIO,Cordoba Oro,FALSE
+NE,Niger,2562,XOF,CFA Franc BCEAO,FALSE
+NG,Nigeria,2566,NGN,Naira,FALSE
+NU,Niue,2570,NZD,New Zealand Dollars,FALSE
+NF,Norfolk Island,2574,AUD,Australian Dollars,FALSE
+KP,North Korea,,KPW,Won,FALSE
+MP,Northern Mariana Islands,2580,USD,USD,FALSE
+NO,Norway,2578,NOK,Norwegian Krone,FALSE
+OM,Oman,2512,OMR,Sul Rial,FALSE
+PK,Pakistan,2586,PKR,Rupee,FALSE
+PW,Palau,2585,USD,USD,FALSE
+PS,Palestine,2275,JOD,Jordanian dinar,FALSE
+PA,Panama,2591,PAB,Balboa,FALSE
+PG,Papua New Guinea,2598,PGK,Kina,FALSE
+PY,Paraguay,2600,PYG,Guarani,FALSE
+PE,Peru,2604,PEN,Nuevo Sol,FALSE
+PH,Philippines,2608,PHP,Peso,FALSE
+PN,Pitcairn Islands,2612,NZD,New Zealand Dollars,FALSE
+PL,Poland,2616,EUR,Euros,TRUE
+PT,Portugal,2620,EUR,Euros,TRUE
+PR,Puerto Rico,2630,USD,USD,FALSE
+QA,Qatar,2634,QAR,Rial,FALSE
+CG,Republic of the Congo,2178,XAF,CFA Franc BEAC,FALSE
+RE,Reunion,2638,EUR,Euros,FALSE
+RO,Romania,2642,RON,Leu,TRUE
+RU,Russia,2643,RUB,Ruble,FALSE
+RW,Rwanda,2646,RWF,Rwanda Franc,FALSE
+BL,Saint Barthelemy,,EUR,Euro,FALSE
+SH,Saint Helena,2654,GBP,Saint Helena pound,FALSE
+KN,Saint Kitts and Nevis,2659,XCD,East Caribbean Dollar,FALSE
+LC,Saint Lucia,2662,XCD,East Caribbean Dollar,FALSE
+MF,Saint Martin,,ANG,Netherlands Antillean guilder,FALSE
+PM,Saint Pierre and Miquelon,2666,EUR,Euro,FALSE
+VC,Saint Vincent and the Grenadines,2670,XCD,East Caribbean Dollar,FALSE
+WS,Samoa,2882,EUR,Euros,FALSE
+SM,San Marino,2674,EUR,Euros,FALSE
+ST,Sao Tome and Principe,2678,STD,Dobra,FALSE
+SA,Saudi Arabia,2682,SAR,Riyal,FALSE
+SN,Senegal,2686,XOF,CFA Franc BCEAO,FALSE
+RS,Serbia,2688,RSD,Serbian dinar,FALSE
+SC,Seychelles,2690,SCR,Rupee,FALSE
+SL,Sierra Leone,2694,SLL,Leone,FALSE
+SG,Singapore,2702,SGD,Dollar,FALSE
+SX,Sint Maarten,,ANG,Netherlands Antilles Guilder,FALSE
+SK,Slovakia,2703,EUR,Euros,TRUE
+SI,Slovenia,2705,EUR,Euros,TRUE
+SB,Solomon Islands,2090,SBD,Solomon Islands Dollar,FALSE
+SO,Somalia,2706,SOS,Shilling,FALSE
+ZA,South Africa,2710,ZAR,Rand,FALSE
+GS,South Georgia and the South Sandwich Islands,2239,GBP,Sterling,FALSE
+KR,South Korea,2410,KRW,Won,FALSE
+SS,South Sudan,,SSP,South Sudanese Pound,FALSE
+ES,Spain,2724,EUR,Euros,TRUE
+LK,Sri Lanka,2144,LKR,Rupee,FALSE
+SD,Sudan,,SDG,Dinar,FALSE
+SR,Suriname,2740,SRD,Surinamese Guilder,FALSE
+SJ,Svalbard and Jan Mayen,2744,NOK,Norwegian Krone,FALSE
+SZ,Swaziland,2748,SZL,Lilangeni,FALSE
+SE,Sweden,2752,SEK,Krona,TRUE
+CH,Switzerland,2756,CHF,Swiss Franc,FALSE
+SY,Syria,,SYP,Syrian Pound,FALSE
+TW,Taiwan,2158,TWD,Dollar,FALSE
+TJ,Tajikistan,2762,TJS,Tajikistan Ruble,FALSE
+TZ,Tanzania,2834,TZS,Shilling,FALSE
+TH,Thailand,2764,THB,Baht,FALSE
+BS,The Bahamas,2044,BSD,Bahamian Dollar,FALSE
+GM,The Gambia,2270,GMD,Dalasi,FALSE
+TL,Timor-Leste,2626,USD,USD,FALSE
+TG,Togo,2768,XOF,CFA Franc BCEAO,FALSE
+TK,Tokelau,2772,NZD,New Zealand Dollars,FALSE
+TO,Tonga,2776,TOP,PaÕanga,FALSE
+TT,Trinidad and Tobago,2780,TTD,Trinidad and Tobago Dollar,FALSE
+TN,Tunisia,2788,TND,Tunisian Dinar,FALSE
+TR,Turkey,2792,TRY,Lira,FALSE
+TM,Turkmenistan,2795,TMT,Manat,FALSE
+TC,Turks and Caicos Islands,2796,USD,USD,FALSE
+TV,Tuvalu,2798,AUD,Australian Dollars,FALSE
+VI,U.S. Virgin Islands,2850,USD,USD,FALSE
+UG,Uganda,2800,UGX,Shilling,FALSE
+UA,Ukraine,2804,UAH,Hryvnia,FALSE
+AE,United Arab Emirates,2784,AED,Dirham,FALSE
+GB,United Kingdom,2826,GBP,Sterling,TRUE
+US,United States,2840,USD,USD,FALSE
+UM,United States Minor Outlying Islands,2581,USD,USD,FALSE
+UY,Uruguay,2858,UYU,Peso,FALSE
+UZ,Uzbekistan,2860,UZS,Som,FALSE
+VU,Vanuatu,2548,VUV,Vatu,FALSE
+VA,Vatican City,2336,EUR,Euros,FALSE
+VE,Venezuela,2862,VEF,Bolivar,FALSE
+VN,Vietnam,2704,VND,Dong,FALSE
+WF,Wallis and Futuna,2876,XPF,CFP Franc,FALSE
+EH,Western Sahara,2732,MAD,Dirham,FALSE
+YE,Yemen,2887,YER,Rial,FALSE
+ZM,Zambia,2894,ZMK,Kwacha,FALSE
+ZW,Zimbabwe,2716,ZWD,Zimbabwe Dollar,FALSE
+ZZ,unknown,,,,FALSE
+AX,Åland Islands,,EUR,Euro,FALSE
+EU,unknown,,,,FALSE
+AP,unknown,,,,FALSE
+UNKNOWN,unknown,,,,FALSE
+WW,Worldwide,,,,FALSE

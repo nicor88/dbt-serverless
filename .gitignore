@@ -12,3 +12,6 @@ logs/
 # artifacts
 *.zip
 utils/lambda_layer_python_3.7/python
+
+# docker volumes
+postgres_data/
