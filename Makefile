@@ -1,4 +1,4 @@
-IMAGE-NAME="dbt-serverless"
+IMAGE_NAME="dbt-serverless"
 AWS_ACCOUNT_ID=
 
 install:
@@ -20,7 +20,7 @@ infra-destroy:
 	cd infrastructure && terraform destroy;
 
 docker-build:
-	docker build --rm -t $IMAGE_NAME:latest .
+	@docker build --rm -t ${IMAGE_NAME}:latest .
 
 run-dbt-example-docker:
 	bash utils/run_container_locally.sh example
