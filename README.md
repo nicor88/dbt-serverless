@@ -26,7 +26,8 @@ Currently Aurora Postgres is only accessible inside the VPC.
 I create a Network load balancer, to connect to the DB from everywhere, but you need to get the Private IP of Aurora Endpoint.
 You can simply run:
 <pre>
-nslookup your_aurora_enpoint(return from the terraform apply)
+nslookup your_aurora_enpoint
+# returned from the terraform outputs
 </pre>
 Then you need to replace the 2 variables:
 * autora_postgres_serverless_private_ip_1
