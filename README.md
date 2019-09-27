@@ -3,13 +3,21 @@ Run dbt serverless in the Cloud (AWS)
 
 ## Requirements
 * aws credentials configured in `~/.aws/credentials`
+* aws cli
+    <pre
+    pip install awscli
+    </pre>
 * terraform
-    * MacOs
+
 
 ## Deploy
 The infrastructure is based on terraform.
 I setup a terraform backend to keep terraform state. The backend is based an S3 bucket that was created manually.
-Remember to change the name of the S3 bucket before running the following commands:
+You can create an S3 bucket simply running:
+<pre>
+aws s3api create-bucket --bucket nicor88-eu-west-1-terraform --region eu-west-1 --create-bucket-configuration LocationConstraint=eu-west-1
+</pre>
+Remember to change the name of the S3 bucket inside `infrastructure/provider.tf` before running the following commands:
 <pre>
 export AWS_PROFILE=your_profile
 make infra-plan
