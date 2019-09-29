@@ -68,5 +68,17 @@ and apply again the changes with the command `make infra-apply`
 }
 </pre>
 
-## TODO
-* test schedule of only ECS container,  [terraform-reference](https://www.terraform.io/docs/providers/aws/r/cloudwatch_event_target.html#example-ecs-run-task-with-role-and-task-override-usage)
+## Airflow operator
+It's possible to invoke the ECS Fargate containers to run dbt also from Airflow.
+Here an example of how to call a DbtOperator from Airflow:
+<pre>
+dbt_run_example = DbtOperator(
+    dag=dag,
+    task_id='dbt_example',
+    command='run',
+    target='dev',
+    dbt_models='my_example',
+    subnets=['subnet_id_1', 'subnet_id_2'],
+    security_groups=['sg_1']
+)
+</pre>
