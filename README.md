@@ -69,7 +69,7 @@ and apply again the changes with the command `make infra-apply`
 </pre>
 
 ## Airflow operator
-It's possible to invoke the ECS Fargate containers to run dbt also from Airflow.
+It's possible to invoke ECS Fargate containers to run dbt also from Airflow.
 Here an example of how to call a DbtOperator from Airflow:
 <pre>
 dbt_run_example = DbtOperator(
