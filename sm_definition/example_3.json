@@ -1,0 +1,177 @@
+{
+  "StartAt": "DbtInstallsRun",
+  "States": {
+    "DbtInstallsRun": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::ecs:runTask.sync",
+      "Parameters": {
+        "Cluster": "ecs_cluster_name",
+        "TaskDefinition": "ecs_task_name",
+        "LaunchType": "FARGATE",
+        "NetworkConfiguration": {
+          "AwsvpcConfiguration": {
+            "Subnets": ["subnet_1", "subnet_2", "subnet_3"],
+            "AssignPublicIp": "ENABLED",
+            "SecurityGroups": ["security_group_1"]
+          }
+        },
+        "Overrides": {
+          "ContainerOverrides": [
+            {
+              "Name": "dbt",
+              "Command.$": "$.command_users_run"
+            }
+          ]
+        }
+      },
+      "Retry": [
+        {
+          "ErrorEquals": ["States.ALL"],
+          "IntervalSeconds": 5,
+          "BackoffRate": 1.5,
+          "MaxAttempts": 3
+        }
+      ],
+      "Catch": [
+        {
+          "ErrorEquals": ["States.ALL"],
+          "Next": "FailureNotifier",
+          "ResultPath": null
+        }
+      ],
+      "Next": "DbtInstallsTest",
+      "ResultPath": "$.dbt_run"
+    },
+    "DbtInstallsTest": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::ecs:runTask.sync",
+      "Parameters": {
+        "Cluster": "ecs_cluster_name",
+        "TaskDefinition": "ecs_task_name",
+        "LaunchType": "FARGATE",
+        "NetworkConfiguration": {
+          "AwsvpcConfiguration": {
+            "Subnets": ["subnet_1", "subnet_2", "subnet_3"],
+            "AssignPublicIp": "ENABLED",
+            "SecurityGroups": ["security_group_1"]
+          }
+        },
+        "Overrides": {
+          "ContainerOverrides": [
+            {
+              "Name": "dbt",
+              "Command.$": "$.command_test"
+            }
+          ]
+        }
+      },
+      "Retry": [
+        {
+          "ErrorEquals": ["States.ALL"],
+          "IntervalSeconds": 5,
+          "BackoffRate": 1.5,
+          "MaxAttempts": 3
+        }
+      ],
+      "Catch": [
+        {
+          "ErrorEquals": ["States.ALL"],
+          "Next": "FailureNotifier",
+          "ResultPath": null
+        }
+      ],
+      "Next": "DbtUsersRun",
+      "ResultPath": "$.dbt_test"
+    },
+    "DbtUsersRun": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::ecs:runTask.sync",
+      "Parameters": {
+        "Cluster": "ecs_cluster_name",
+        "TaskDefinition": "ecs_task_name",
+        "LaunchType": "FARGATE",
+        "NetworkConfiguration": {
+          "AwsvpcConfiguration": {
+            "Subnets": ["subnet_1", "subnet_2", "subnet_3"],
+            "AssignPublicIp": "ENABLED",
+            "SecurityGroups": ["security_group_1"]
+          }
+        },
+        "Overrides": {
+          "ContainerOverrides": [
+            {
+              "Name": "dbt",
+              "Command.$": "$.command_users_run"
+            }
+          ]
+        }
+      },
+      "Retry": [
+        {
+          "ErrorEquals": ["States.ALL"],
+          "IntervalSeconds": 5,
+          "BackoffRate": 1.5,
+          "MaxAttempts": 3
+        }
+      ],
+      "Catch": [
+        {
+          "ErrorEquals": ["States.ALL"],
+          "Next": "FailureNotifier",
+          "ResultPath": null
+        }
+      ],
+      "Next": "DbtUsersTest",
+      "ResultPath": "$.dbt_run"
+    },
+    "DbtUsersTest": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::ecs:runTask.sync",
+      "Parameters": {
+        "Cluster": "ecs_cluster_name",
+        "TaskDefinition": "ecs_task_name",
+        "LaunchType": "FARGATE",
+        "NetworkConfiguration": {
+          "AwsvpcConfiguration": {
+            "Subnets": ["subnet_1", "subnet_2", "subnet_3"],
+            "AssignPublicIp": "ENABLED",
+            "SecurityGroups": ["security_group_1"]
+          }
+        },
+        "Overrides": {
+          "ContainerOverrides": [
+            {
+              "Name": "dbt",
+              "Command.$": "$.command_test"
+            }
+          ]
+        }
+      },
+      "Retry": [
+        {
+          "ErrorEquals": ["States.ALL"],
+          "IntervalSeconds": 5,
+          "BackoffRate": 1.5,
+          "MaxAttempts": 3
+        }
+      ],
+      "Catch": [
+        {
+          "ErrorEquals": ["States.ALL"],
+          "Next": "FailureNotifier",
+          "ResultPath": null
+        }
+      ],
+      "End": true,
+      "ResultPath": "$.dbt_test"
+    },
+    "FailureNotifier": {
+      "Type": "Pass",
+      "Next": "Failure",
+      "ResultPath": "$.notifier"
+    },
+    "Failure": {
+      "Type": "Fail"
+    }
+  }
+}
