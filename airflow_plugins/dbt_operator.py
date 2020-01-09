@@ -1,4 +1,3 @@
-import logging
 import pprint
 import sys
 
@@ -7,8 +6,6 @@ from airflow.models import BaseOperator
 from airflow.plugins_manager import AirflowPlugin
 from airflow.utils import apply_defaults
 from airflow.contrib.hooks.aws_hook import AwsHook
-
-logger = logging.getLogger('airflow.dbt_operator')
 
 
 class DbtOperator(BaseOperator):
@@ -65,8 +62,9 @@ class DbtOperator(BaseOperator):
                 }
             ]
         }
-        logger.info(f'Running ECS Task - Task definition: {self.task_definition} - on cluster {self.cluster}')
-        logger.debug('ECSOperator overrides: %s', overrides)
+
+        self.log.info(f'Running ECS Task - Task definition: {self.task_definition} - on cluster {self.cluster}')
+        self.log.debug('ECSOperator overrides: %s', overrides)
 
         self.client = self.hook.get_client_type(
             'ecs',
@@ -90,8 +88,8 @@ class DbtOperator(BaseOperator):
         if len(failures) > 0:
             raise AirflowException(response)
 
-        logger.info(f'ECS Task {self.task_definition} started')
-        logger.debug('ECS Task started: %s', pprint.pformat(response))
+        self.log.info(f'ECS Task {self.task_definition} started')
+        self.log.debug('ECS Task started: %s', pprint.pformat(response))
 
         self.arn = response['tasks'][0]['taskArn']
         self.task_id = response['tasks'][0]['taskArn'].split('/')[1]
@@ -99,13 +97,13 @@ class DbtOperator(BaseOperator):
 
         self._check_success_task()
 
-        logger.debug('ECS Task has been successfully executed: %s', pprint.pformat(response))
+        self.log.debug('ECS Task has been successfully executed: %s', pprint.pformat(response))
 
-        logger.info('Retrieving logs from Cloudwatch')
+        self.log.info('Retrieving logs from Cloudwatch')
 
         self._get_cloudwatch_logs()
 
-        logger.info(f'{self.task_id} task has been successfully executed in ECS cluster {self.cluster}')
+        self.log.info(f'{self.task_id} task has been successfully executed in ECS cluster {self.cluster}')
 
     def _wait_for_task_ended(self):
         waiter = self.client.get_waiter('tasks_stopped')
@@ -120,8 +118,8 @@ class DbtOperator(BaseOperator):
             cluster=self.cluster,
             tasks=[self.arn]
         )
-        logger.info(f'ECS Task {self.task_id} stopped')
-        logger.debug('ECS Task stopped, check status: %s', pprint.pformat(response))
+        self.log.info(f'ECS Task {self.task_id} stopped')
+        self.log.debug('ECS Task stopped, check status: %s', pprint.pformat(response))
 
         if len(response.get('failures', [])) > 0:
             raise AirflowException(response)
@@ -152,10 +150,10 @@ class DbtOperator(BaseOperator):
                 startFromHead=True
             )
             for event in raw_logs.get('events'):
-                logger.info(f'{event.get("message")}')
+                self.log.info(f'{event.get("message")}')
         except Exception as error:
-            logger.error(f'There was en error fetching Cloudwatch logs for task {self.task_id}')
-            logger.error(error)
+            self.log.error(f'There was en error fetching Cloudwatch logs for task {self.task_id}')
+            self.log.error(error)
 
     def get_hook(self):
         return AwsHook(
@@ -167,8 +165,8 @@ class DbtOperator(BaseOperator):
             cluster=self.cluster,
             task=self.arn,
             reason='Task killed by the user')
-        logger.info('Task killed by the user')
-        logger.debug(pprint.pformat(response))
+        self.log.info('Task killed by the user')
+        self.log.debug(pprint.pformat(response))
 
 
 class DbtPlugin(AirflowPlugin):
