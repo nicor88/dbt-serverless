@@ -4,9 +4,9 @@ Run dbt serverless in the Cloud (AWS)
 ## Requirements
 * aws credentials configured in `~/.aws/credentials`
 * aws cli
-    <pre
-    pip install awscli
-    </pre>
+  <pre>
+  pip install awscli
+  </pre>
 * terraform
 
 
